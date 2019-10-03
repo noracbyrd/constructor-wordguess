@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/noracbyrd/constructor-wordguess/issues"
   },
-  "homepage": "https://github.com/noracbyrd/constructor-wordguess#readme"
+  "homepage": "https://github.com/noracbyrd/constructor-wordguess#readme",
+  "dependencies": {
+    "inquirer": "^7.0.0"
+  }
 }

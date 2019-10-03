@@ -1,8 +1,8 @@
-function Letter(character,guessed) {
+function Letter(character) {
     this.character = character;
     this.guessed = false;
     this.isGuessed = function(){
-        if (guessed){
+        if (this.guessed){
             console.log(this.character);
             return this.character;
         } else {
@@ -13,6 +13,7 @@ function Letter(character,guessed) {
     this.userGuess = function(guess){
         if (guess === this.character){
             this.guessed = true;
+            this.isGuessed();
         } 
     }
 }
