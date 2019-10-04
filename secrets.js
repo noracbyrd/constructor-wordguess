@@ -1,9 +1,9 @@
 var secret = {
-    words: ["THE PRINCESS AND THE FROG","SLEEPING BEAUTY","TANGLED","FROZEN","SNOW WHITE AND THE SEVEN DWARFS","THE LITTLE MERMAID","CINDERELLA","MOANA","POCAHONTAS","BEAUTY AND THE BEAST"]
+    words: ["TANGLED","FROZEN","CINDERELLA","MOANA","POCAHONTAS","SNOW WHITE","BEAUTY AND THE BEAST"]
 }
 
 var randomWord = function(){
-    return secret.words[Math.floor(Math.random()*9)];
+    return secret.words[Math.floor(Math.random()*4)];
 }
 
 

@@ -1,29 +1,34 @@
 var Letter = require("./letter.js");
-var secret = require("./secrets.js");
 
 
 function Word(secretword) {
-    var theWord = [];
+    this.theWord = [];
+    this.stringy = "";
+    this.shh = secretword;
     this.letterGen = function () {
         for (var i = 0; i < secretword.length; i++) {
-            theWord.push(new Letter(secretWord[i],false));
-        }
+            this.theWord.push(new Letter(secretword[i]));
+        } 
     }
     this.wordString = function(){
-        for (var char in theWord){
-            char.userGuessed();
-        }
+        for (var i = 0; i<this.theWord.length; i++){
+            this.stringy += this.theWord[i].isGuessed();
+        } 
+        console.log(this.stringy);
+        return this.stringy;
     }
+    // A function that returns a string representing the word. This should call the function on each letter object (the first function defined in `Letter.js`) that displays the character or an underscore and concatenate those together.
     this.guessTime = function(char){
         //this function is a dumpster fire
-        char.userGuess(char)
-    }
+        for (var i=0; i<this.theWord.length; i++) {
+            this.theWord[i].userGuess(char);
+    } 
+}
 }
 
+// var special = new Word("special");
+// special.letterGen();
+// special.wordString();
+// special.guessTime("A");
 
-console.log(secret.secret.words.length);
-console.log(secret.secret.words[0]);
-console.log(secret.randomWord());
-
-var attempt = new Word(secret.randomWord());
-attempt.test();
+module.exports = Word;
