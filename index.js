@@ -18,6 +18,7 @@ var game = function () {
                     // need some kind of validation for if user enters non-letter key
                 }
             ]).then(function (ans) {
+                var tracker=0;
                 // mysteryWord.letterGen();
                 // mysteryWord.guessTime(ans.letterGuess);
                 var theGuess = ans.letterGuess.toUpperCase();
@@ -29,12 +30,15 @@ var game = function () {
                         // mysteryWord.theWord[i].userGuess(ans.letterGuess);
                         mysteryWord.guessTime(theGuess);
                         mysteryWord.wordString();
-                        
+                        tracker++;
                     } else {
                         // console.log("Wrong letter!");
                         mysteryWord.guessTime(theGuess);
                     }
 
+                } if (tracker===0){
+                    console.log("wrong letter");
+                    turns--;
                 }
                 if (mysteryWord.stringy === mysteryWord.shh) {
                     console.log("Congrats! On to the next word...");
@@ -45,7 +49,7 @@ var game = function () {
                     game();
                 } else{
 
-                turns--;
+     
                 game();
                 }
             }).catch(function (err) {

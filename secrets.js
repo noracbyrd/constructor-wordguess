@@ -3,7 +3,7 @@ var secret = {
 }
 
 var randomWord = function(){
-    return secret.words[Math.floor(Math.random()*4)];
+    return secret.words[Math.floor(Math.random()*6)];
 }
 
 
