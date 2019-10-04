@@ -23,7 +23,7 @@ var game = function () {
                 {
                     message: "Guess a letter!",
                     name: "letterGuess",
-                    // need some kind of validation for if user enters non-letter key
+                    // validation would be nice for if user enters non-letter key
                 }
             ]).then(function (ans) {
                 // tracker is essentially a flag to see if a guessed letter was correct - if the letter appears anywhere in the word, we'll add to the tracker, so that if the letter doesn't appear anywhere in the below for loop the tracker stays at 0 and we know the letter was wrong:
@@ -33,8 +33,6 @@ var game = function () {
                 // the for loop to compare the user guess to the letters in the mystery word:
                 for (var i in mysteryWord.theWord) {
                     if (theGuess === mysteryWord.theWord[i].character) {
-                        console.log("Correct letter!");
-                        console.log(`${turns} turns left!`);
                         // emptying "stringy" so that it doesn't add the word to itself over and over, which it totally did when I was building this at first, and frankly it took me wayyyy to long to realize I needed to do this...anyway... :
                         mysteryWord.stringy = "";
                         // calling the guess checker:
@@ -44,15 +42,18 @@ var game = function () {
                         // incrementing the tracker to mark that a correct word was guessed:
                         tracker++;
                     } else {
-                        // console.log("Wrong letter!");
                         mysteryWord.guessTime(theGuess);
                     }
                 // letting user know they guessed a wrong letter and how many turns are left:
                 } if (tracker===0){
-                    console.log("wrong letter");
-                    console.log(`${turns} turns left!`);
+                    console.log("Wrong letter!");
+                    console.log(mysteryWord.stringy);
                     turns--;
-                }
+                    console.log(`${turns} turns left!`);
+                } else {
+                    console.log("Correct letter!");
+                    console.log(`${turns} turns left!`);
+                }   
                 // if the user guesses the whole word:
                 if (mysteryWord.stringy === mysteryWord.shh) {
                     console.log("Congrats! On to the next word...");
