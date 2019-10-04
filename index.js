@@ -20,18 +20,19 @@ var game = function () {
             ]).then(function (ans) {
                 // mysteryWord.letterGen();
                 // mysteryWord.guessTime(ans.letterGuess);
+                var theGuess = ans.letterGuess.toUpperCase();
                 for (var i in mysteryWord.theWord) {
-                    if (ans.letterGuess === mysteryWord.theWord[i].character) {
+                    if (theGuess === mysteryWord.theWord[i].character) {
                         console.log("Correct letter!");
                         console.log(turns);
                         mysteryWord.stringy = "";
                         // mysteryWord.theWord[i].userGuess(ans.letterGuess);
-                        mysteryWord.guessTime(ans.letterGuess);
+                        mysteryWord.guessTime(theGuess);
                         mysteryWord.wordString();
                         
                     } else {
                         // console.log("Wrong letter!");
-                        mysteryWord.guessTime(ans.letterGuess);
+                        mysteryWord.guessTime(theGuess);
                     }
 
                 }
