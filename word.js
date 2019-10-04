@@ -7,12 +7,25 @@ function Word(secretword) {
     this.shh = secretword;
     this.letterGen = function () {
         for (var i = 0; i < secretword.length; i++) {
+            if (secretword[i]  === " "){
+                //this might not work
+                //it definitely does not work
+                this.theWord.push(" ");
+                console.log("uh oh");
+            } else{
             this.theWord.push(new Letter(secretword[i]));
+            }
         } 
     }
     this.wordString = function(){
         for (var i = 0; i<this.theWord.length; i++){
+            //this might not work either
+            if (this.theWord[i] === " "){
+                this.stringy += " ";
+            } else{
+                // below def works
             this.stringy += this.theWord[i].isGuessed();
+            }
         } 
         console.log(this.stringy);
         return this.stringy;
@@ -21,7 +34,10 @@ function Word(secretword) {
     this.guessTime = function(char){
         //this function is a dumpster fire
         for (var i=0; i<this.theWord.length; i++) {
+            if (this.theWord[i] === " "){
+            } else {
             this.theWord[i].userGuess(char);
+            }
     } 
 }
 }
