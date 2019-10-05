@@ -6,7 +6,7 @@ Repository link: https://github.com/noracbyrd/constructor-wordguess
 
 ### Overview
 
-This is your basic hangman game played entirely within the command line interface. A Disney-themed word is selected at random from an array of options, and the user guesses letters until they either run out of turns or guess the entire word correctly.
+This is your basic hangman game played entirely within the command line interface. A Disney-themed word is selected at random from an array of options, and the user guesses letters until they either run out of turns or guess the entire word correctly. If the user guesses the word, they are given a new random word to try to guess!
 
 ### Game Demo
 https://drive.google.com/file/d/1ppn_3BD-5gqNkl5Un-RcBuIGVDAP2xzt/view
